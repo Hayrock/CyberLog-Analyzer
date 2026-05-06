@@ -1,12 +1,15 @@
 from parser import parsing_arg
-import traceback
+from analyzer import check_attempt
 
 
-def main():
+def main() -> str:
+    try:
+        log, threshold = parsing_arg()
+        attempts = check_attempt(log, threshold)
+        return ""
+    except Exception:
+        raise
+
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as error:
-        print(error)
-        traceback.print_exc()
+    print(main())
